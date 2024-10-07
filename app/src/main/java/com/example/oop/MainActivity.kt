@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class MainActivity : AppCompatActivity() ,OnClickListener{
+class MainActivity : AppCompatActivity() ,OnClickListener, View.OnLongClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() ,OnClickListener{
         var img:ImageView = findViewById(R.id.img)
         img.setOnClickListener(this)
         txv.setOnClickListener(this)
-        img.setOnClickListener(this)
+        img.setOnLongClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() ,OnClickListener{
             txv.text="meow~"
         }
     }
-    fun onLongClick(p0: View?):Boolean {
+    override fun onLongClick(p0: View?):Boolean {
         var txv:TextView = findViewById(R.id.txv)
         txv.text="貓長按"
         return false
